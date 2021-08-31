@@ -12,7 +12,7 @@ require 'vendor/autoload.php'; // If you're using Composer (recommended)
 $email = new \SendGrid\Mail\Mail(); 
 $email->setFrom("kamil.prochazka@citrix.com", "Kamil");
 $email->setSubject("Sending with SendGrid is Fun");
-$email->addTo("luci.divisova@seznam.cz", "Luci");
+$email->addTo("prochazka.kamil@gmail.com", "Kamil");
 $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
 $email->addContent(
     "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
