@@ -1,17 +1,30 @@
 <?php 
 
-	$to = "prochazka.kamil@gmail.com";
-	$from  = $_POST['email']; // this is the sender's Email address
-	$sender_name = $_POST['name'];
-	$number_of_gustes = $_POST['guest'];
-	$events = $_POST['events'];
-	$notes = $_POST['notes'];
+require 'vendor/autoload.php'; // If you're using Composer (recommended)
+// Comment out the above line if not using Composer
+// require("<PATH TO>/sendgrid-php.php");
+// If not using Composer, uncomment the above line and
+// download sendgrid-php.zip from the latest release here,
+// replacing <PATH TO> with the path to the sendgrid-php.php file,
+// which is included in the download:
+// https://github.com/sendgrid/sendgrid-php/releases
 
-
-	$subject = "Form submission";
-	$message = $sender_name . " is attending! The number of gustes of his / her is : " .  $number_of_gustes . " and his / her selected event is " . $events . ". He / she worte the following... ". "\n\n" . $notes;
-
-	$headers = 'From: ' . $from;
-	mail($to, $subject, $message, $headers);
+$email = new \SendGrid\Mail\Mail(); 
+$email->setFrom("kamil.prochazka@citrix.com", "Kamil");
+$email->setSubject("Sending with SendGrid is Fun");
+$email->addTo("luci.divisova@seznam.cz", "Luci");
+$email->addContent("text/plain", "and easy to do anywhere, even with PHP");
+$email->addContent(
+    "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
+);
+$sendgrid = new \SendGrid("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");
+try {
+    $response = $sendgrid->send($email);
+    print $response->statusCode() . "\n";
+    print_r($response->headers());
+    print $response->body() . "\n";
+} catch (Exception $e) {
+    echo 'Caught exception: '. $e->getMessage() ."\n";
+}
 
 ?>
