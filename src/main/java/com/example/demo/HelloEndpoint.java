@@ -26,6 +26,7 @@ public class HelloEndpoint {
     @GetMapping("hello")
     public ResponseEntity<Object> hello(HttpServletRequest request) {
         logger.info("spring.mail.username={}", environment.getProperty("spring.mail.username"));
+        logger.info("spring.mail.password={}", environment.getProperty("spring.mail.password"));
         return ResponseEntity.ok("Hello World!");
     }
 
