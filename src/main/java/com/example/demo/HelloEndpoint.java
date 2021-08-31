@@ -25,13 +25,13 @@ public class HelloEndpoint {
 
     @GetMapping("hello")
     public ResponseEntity<Object> hello(HttpServletRequest request) {
-        logger.info("spring.mail.username={}", environment.getProperty("spring.mail.username"));
-        logger.info("spring.mail.password={}", environment.getProperty("spring.mail.password"));
+        logger.info("Hello World!");
         return ResponseEntity.ok("Hello World!");
     }
 
     @GetMapping("mail")
     public ResponseEntity mail() {
+        logger.info("Mail endpoint called!");
 
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setTo("prochazka.kamil@gmail.com");
