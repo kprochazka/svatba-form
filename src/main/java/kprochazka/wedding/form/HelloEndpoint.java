@@ -1,4 +1,4 @@
-package com.example.demo;
+package kprochazka.wedding.form;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,9 +9,13 @@ import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static org.springframework.web.bind.annotation.RequestMethod.*;
+
+@CrossOrigin(origins = "*", methods = {HEAD, GET, PUT, POST, PATCH, DELETE})
 @RestController
 public class HelloEndpoint {
 

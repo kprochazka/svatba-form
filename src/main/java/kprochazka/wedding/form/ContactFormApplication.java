@@ -1,13 +1,13 @@
-package com.example.demo;
+package kprochazka.wedding.form;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class ContactFormApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(ContactFormApplication.class, args);
     }
 
 }
