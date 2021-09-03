@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import static java.lang.String.*;
+import static java.lang.String.format;
 import static org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED_VALUE;
 import static org.springframework.http.MediaType.TEXT_PLAIN_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
@@ -42,7 +42,7 @@ public class FormEndpoint {
     private void sendEmail(FormData data) {
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setFrom("prochazkovi2021@no-reply.com");
-        msg.setTo("prochazka.kamil@gmail.com");
+        msg.setTo("prochazka.kamil@gmail.com", "luci.divisova@seznam.cz");
         msg.setSubject("Prochazkovi2021 Formular");
         msg.setText(printMailText(data));
         javaMailSender.send(msg);
